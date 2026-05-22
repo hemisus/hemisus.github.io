@@ -145,30 +145,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     // search box
-    const searchButton = document.querySelectorAll("#btn-search");
     const cancelButton = document.querySelector('#btn-clear');
-    const searchPage = document.querySelector("#search");
-
-    if (searchButton) {
-        searchButton.forEach((btn) => {
-            btn.addEventListener('click', function() {
-                searchPage.classList.add('active');
-                document.getElementById("search-input").focus();
-            });
-        });
-    }
-
-    if (searchPage) {
-        searchPage.addEventListener('click', function(event) {
-            const searchBar = document.querySelector(".search-box");
-            var target = event.target;
-
-            if (searchBar.contains(target))
-                return;
-
-            searchPage.classList.remove('active');
-        });
-    }
 
     if (cancelButton) {
         cancelButton.addEventListener('click', function() {

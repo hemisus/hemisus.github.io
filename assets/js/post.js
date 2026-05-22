@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
     let currentTheme = localStorage.getItem('theme');
 
     // tocbot
-    var headings = innerContent.querySelectorAll('h1, h2');
+    var headings = innerContent.querySelectorAll('h1, h2, h3');
     var prevHead;
 
     const tocBorad = document.querySelector(".toc-board");
@@ -79,16 +79,14 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
     // Tag EventListener
-    const searchPage = document.querySelector("#search");
-
     document.querySelectorAll('.tag-box .tag').forEach(function(tagButton){
         tagButton.addEventListener('click', function() {
             const contentID = tagButton.getAttribute('contentID');
             const inpuxBox = document.getElementById('search-input');
-            searchPage.classList.add('active');
 
             inpuxBox.value = contentID;
             inpuxBox.dispatchEvent(new KeyboardEvent('keyup'));
+            inpuxBox.focus();
         });
     });
 
