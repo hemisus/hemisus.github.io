@@ -325,15 +325,9 @@ class ResNet(nn.Module):
         return x
 ```
 
-##### `self.inplanes`
+##### self.inplanes
 
-```python
-self.inplanes = 64
-```
-
-`self.inplanes`는 현재 Layer의 입력 채널 수를 의미한다.
-
-첫 번째 Convolution의 출력 채널 수가 64이므로 초기값은 64로 설정된다.
+`self.inplanes`는 현재 Layer의 입력 채널 수를 의미한다. 첫 번째 Convolution의 출력 채널 수가 64이므로 초기값은 64로 설정된다.
 
 이후 `_make_layer()`에서 첫 번째 Block이 생성된 후
 
@@ -352,7 +346,7 @@ self.inplanes = planes * block.expansion
 512 → 2048
 ```
 
-##### `_make_layer()`
+##### _make_layer()
 
 ```python
 self.layer1 = self._make_layer(block, 64, layers[0])
@@ -361,9 +355,7 @@ self.layer3 = self._make_layer(block, 256, layers[2], stride=2)
 self.layer4 = self._make_layer(block, 512, layers[3], stride=2)
 ```
 
-이 함수는 여러 개의 Residual Block을 묶어 하나의 Layer를 생성한다.
-
-예를 들어 ResNet50에서는
+이 함수는 여러 개의 Residual Block을 묶어 하나의 Layer를 생성한다. 예를 들어 ResNet50에서는
 
 ```python
 layers = [3, 4, 6, 3]
