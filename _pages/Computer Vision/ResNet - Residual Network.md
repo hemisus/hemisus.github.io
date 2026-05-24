@@ -148,12 +148,11 @@ def conv1x1(in_planes, out_planes, stride=1):
 $$
 H(x) = F(x) + x
 $$
-
+<br>
 $$
 y = \mathrm{ReLU}(H(x))
 $$
-
-
+<br>
 ```python
 class BasicBlock(nn.Module):
     expansion = 1
