@@ -145,14 +145,10 @@ def conv1x1(in_planes, out_planes, stride=1):
 
 기본적인 Residual Block구조이다. forward()를 보면 F(x) + x가 마지막에 활성화 함수를 통과하는 ResNet v1의 방식이다.
 
-$$
-H(x) = F(x) + x
-$$
-<br>
-$$
-y = \mathrm{ReLU}(H(x))
-$$
-<br>
+$$H(x) = F(x) + x$$
+
+$$y = \mathrm{ReLU}(H(x))$$
+
 ```python
 class BasicBlock(nn.Module):
     expansion = 1
