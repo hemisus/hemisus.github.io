@@ -172,12 +172,14 @@ main {
   padding:1rem;
   margin:auto;
   font-size:1rem;
-  line-height:200%;
+  line-height:2;
   position:relative;
   overflow-wrap:break-word;
   word-wrap:break-word;
 
   * { margin:auto; }
+
+  br { font-size:0.5em; }
 
   h1, h2, h3 {
     margin-top:3rem;
@@ -216,14 +218,17 @@ main {
     }
   }
 
-  p, ul, table, div { margin-bottom:3rem; }
+  p { margin-bottom:1.5rem; }
+  ul, table, div { margin-bottom:3rem; }
 
   p + div,
   p + pre,
-  p + blockquote,
+  p + blockquote {
+    margin-top:-0.5rem;
+  }
   div + div,
-  div + blockquote { 
-    margin-top:-2rem; 
+  div + blockquote {
+    margin-top:-2rem;
   }
 
   ul { padding-left:2rem; }

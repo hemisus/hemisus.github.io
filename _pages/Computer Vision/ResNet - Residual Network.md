@@ -10,7 +10,7 @@ tags:
 
 "Deep Residual Learning for Image Recognition" 논문에서 발표된 딥러닝 모델로, 많은 레이어를 가지게 된 깊은 신경망을 효과적으로 학습시키기 위해 Residual Learning이라는 개념을 사용한 모델이다.
 
-(https://arxiv.org/abs/1512.03385)
+[논문: Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
 
 이후에 등장한 많은 모델들에 영향을 준 아키텍쳐로, 논문을 읽고 직접 구현해보며, 공부한 내용을 정리해보았다.
 
@@ -123,7 +123,7 @@ ResNet은 레이어의 깊이에 따라 ResNet-18, 34, 50, 101, 152 등 다양�
 
 PyTorch의 torchvision에 있는 ResNet 구현 코드를 기반으로 작성하였다.
 
-https://github.com/pytorch/vision/blob/6db1569c89094cf23f3bc41f79275c45e9fcb3f3/torchvision/models/resnet.py
+[원본 코드 링크(github)](https://github.com/pytorch/vision/blob/6db1569c89094cf23f3bc41f79275c45e9fcb3f3/torchvision/models/resnet.py)
 
 ### Convolution layer
 
@@ -324,7 +324,7 @@ class ResNet(nn.Module):
         return x
 ```
 
-##### self.inplanes
+#### self.inplanes
 
 `self.inplanes`는 현재 Layer의 입력 채널 수를 의미한다. 첫 번째 Convolution의 출력 채널 수가 64이므로 초기값은 64로 설정된다.
 
@@ -345,7 +345,7 @@ self.inplanes = planes * block.expansion
 512 → 2048
 ```
 
-##### _make_layer()
+#### _make_layer()
 
 ```python
 self.layer1 = self._make_layer(block, 64, layers[0])
@@ -369,7 +369,7 @@ Layer3 : Bottleneck 6개
 Layer4 : Bottleneck 3개
 ```
 
-##### ResNet50의 특성맵 변화
+#### ResNet50의 특성맵 변화
 
 |Stage|Output Shape|
 |---|---|

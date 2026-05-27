@@ -9,6 +9,7 @@ html, body {
 
 .fonts-loaded {
   a, span, p { font-family:"Nunito Sans", 'Lucida Sans', sans-serif; }
+  pre code span { font-family:inherit; }
   h1, h2, h3 { font-family:"Lato", Helvetica, sans-serif; }
   mark { font-family:'Righteous', sans-serif; }
 }
