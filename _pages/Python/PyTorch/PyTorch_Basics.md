@@ -7,7 +7,7 @@ tags:
 
 파이토치의 기초 문법과 함수 사용법을 다룬 포스트이다. 계속해서 내용을 업데이트할 예정.
 
-## 목차
+# 목차
 
 - [1. Tensor](#1-tensor)
   - [1.1. Tensor가 무엇인가?](#11-tensor가-무엇인가)
@@ -18,7 +18,7 @@ tags:
     - [Tensor와 NumPy 변환](#--tensor와-numpy-변환)
   - [1.3. Tensor 연산](#13-tensor-연산)
 
-## 1. Tensor
+# 1. Tensor
 
 ### 1.1. Tensor가 무엇인가?
 
@@ -26,7 +26,7 @@ tags:
 
 이러한 벡터가 여러 개 모이면, 같은 형태가 새로운 방향으로 쌓이게 된다. 즉, 기존 벡터의 수치들이 나열된 방향(가로)에 수직한 방향(세로)으로 데이터가 늘어나면서 **행렬(Matrix)** 이 만들어진다.
 
-그런데 항상 모든 데이터를 동일한 방식으로 표현할 수 있는 것은 아니다. 예를 들어 사진 한 장을 수치들의 집합으로 표현한다고 하면, 단순히 벡터로 펼쳐서 나타낼 수도 있지만, 보다 직관적으로는 다음과 같이 생각할 수 있다. 사진은 가로 × 세로의 픽셀 격자로 이루어진 행렬이며, 각 픽셀은 Red, Green, Blue 세 가지 채널 값을 갖는다. 결국 하나의 이미지는 **(높이) × (너비) × (채널 수)** 형태의 3차원 구조, 즉 직육면체 모양의 수치 배열로 표현된다.
+그런데 항상 모든 데이터를 동일한 방식으로 표현할 수 있는 것은 아니다. 예를 들어 사진 한 장을 수치들의 집합으로 표현한다고 하면, 단순히 벡터로 펼쳐서 나타낼 수도 있지만, 보다 직관적으로는 가로 × 세로의 픽셀 격자로 이루어진 행렬이며, 각 픽셀은 RGB 세 가지 채널 값을 갖는다. 결국 하나의 이미지는 **(높이) × (너비) × (채널 수)** 형태의 3차원 구조, 즉 직육면체 모양의 수치 배열로 표현된다.
 
 그렇다면 이런 이미지가 여러 장 있다면 어떻게 될까? 여러 개의 벡터를 쌓아 행렬을 만들었던 것처럼, 3차원 구조의 이미지들을 또 다른 방향으로 쌓으면 4차원 구조가 된다. 이처럼 차원이 높아질수록 데이터의 구조는 점점 복잡해진다.
 
@@ -175,3 +175,68 @@ print(A @ B)
 ```
 
 ---
+
+### 1.4 Tensor 조작 메서드
+
+#### :: sum, mean
+```python
+A = torch.tensor([[1.0, 2.0],
+                  [3.0, 4.0]])
+print(A.sum())          # tensor(10.)
+print(A.sum(dim=0))     # tensor([4., 6.])
+print(A.mean())         # tensor(2.5000)
+print(A.mean(dim=0))    # tensor([2., 3.])
+```
+
+#### :: max (argmax)
+
+max()로 호출하면 텐서의 최댓값을 반환하고, dim을 파라미터로 같이 전달하면 argmax 정보가 담긴 텐서와 같이 리턴된다.
+
+```python
+print(A.max())         # tensor(4.)
+print(A.max(dim=0))     
+# torch.return_types.max(values=tensor([3., 4.]),indices=tensor([1, 1]))
+
+print(A.max(dim=-1))
+# torch.return_types.max(values=tensor([2., 4.]),indices=tensor([1, 1]))
+print(A.max(dim=0)[1]) # tensor([1, 1])
+```
+
+#### :: view
+
+view를 호출하는 텐서의 원소의 갯수를 유지하며 shape을 변경한다.
+
+```python
+A = torch.tensor([[1, 2, 3],
+                  [4, 5, 6],
+                  [7, 8, 9],
+                  [10, 11,12]])
+print(A.shape)              # torch.Size([4, 3])
+print(A.view(3,-1).shape)   # torch.Size([3, 4])
+print(A.view(2,2,-1).shape) # torch.Size([2, 2, 3])
+print(A.view(-1))           # tensor([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])
+```
+
+#### :: squeeze, unsqueeze
+
+- squeeze(): 크기가 1인 차원을 삭제
+- unsqueeze(dim): 크기가 1인 차원을 추가
+
+```python
+A = torch.tensor([[[1, 2, 3],
+                  [4, 5, 6]]])
+print(A.shape)           # torch.Size([1, 2, 3])
+print(A.squeeze().shape) # torch.Size([2, 3])
+
+A = torch.tensor([[[1, 2, 3, 4, 5, 6]]])
+print(A.shape)           # torch.Size([1, 1, 6])
+print(A.squeeze().shape) # torch.Size([6])
+print(A.squeeze(0).shape)# torch.Size([1, 6])
+```
+```python
+A = torch.tensor([1, 2, 3, 4, 5, 6])
+print(A.shape)  # torch.Size([6])
+print(A.unsqueeze(0).shape)  # torch.Size([1, 6])
+print(A.unsqueeze(1).shape)  # torch.Size([6, 1])
+```
+
