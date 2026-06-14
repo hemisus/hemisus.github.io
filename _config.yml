@@ -15,7 +15,7 @@ giscus_category: "Q&A"
 giscus_categoryId: "DIC_kwDOSj23Sc4C9puT"
 goatcounter_code: hemisus
 google_analytics:
-naver_site_vertification: af75ef8403e04c3113c162eb9eba86e2d7803819
+
 # If your repo name follows the format "<user-name>.github.io", then leave the below blank.
 # Otherwise, set its value as "/<repo-name>". ex) baseurl: /myblog
 baseurl:
