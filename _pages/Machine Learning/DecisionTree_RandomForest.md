@@ -9,7 +9,7 @@ tags:
     - Bagging
     - Boosting
     - Entropy
-thumbnail: "/assets/img/machinelearning/decisiontree&randomforest/1.png"
+thumbnail: "/assets/img/machinelearning/decisiontree/1.png"
 ---
 
 > 참고한/사용된 자료 
@@ -23,7 +23,7 @@ Decision Tree는 Tree 구조를 활용해 데이터의 Entropy와 불순도(Impu
 
 여러 레이블, 혹은 여러 분포의 값이 섞여있는 데이터에서 시작하여 트리의 leaf node에 도달하면 최대한 어떤 범주의 데이터들로만 구성되도록 데이터를 나누는 것이다.
 
-<img src="/assets/img/machinelearning/decisiontree&randomforest/1.png" style="width:600px"><br>
+<img src="/assets/img/machinelearning/decisiontree/1.png" style="width:600px"><br>
 
 ### 불순도(Impurity)
 
