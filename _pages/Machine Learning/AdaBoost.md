@@ -54,6 +54,8 @@ $$전체 오차 ≈ Bias² + Variance + 줄일 수 없는 노이즈$$
 
 두 알고리즘 모두 "적당한 Bias + 적당한 Variance"를 만들기 위한 알고리즘이며, Random Forest는 이미 Variance가 큰 모델들을 평균 내어 Variance를 낮추는 전략이고, AdaBoost는 Bias가 큰 모델들을 순차적으로 보완해 Bias를 낮추는 전략이다.
 
+--- 
+
 # 2. AdaBoost 설계
 
 ### Weak Learner: Decision Stump
@@ -74,6 +76,8 @@ $$F(x) = α₁ · m₁(x) + α₂ · m₂(x) + ... + αₙ · mₙ(x)$$
 즉 모든 Stump가 동등한 영향력을 행사하는 것이 아닌, **더 잘 맞춘 Stump가 더 큰 영향을 가진다**는 것이 AdaBoost 결합 방식의 핵심이다.
 
 <img src="/assets/img/machinelearning/adaboost/2.png" style="width:600px"><br>
+
+--- 
 
 # 3. AdaBoost 작동 과정
 
