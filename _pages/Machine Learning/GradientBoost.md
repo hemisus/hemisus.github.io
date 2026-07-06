@@ -9,7 +9,7 @@ tags:
 thumbnail: "/assets/img/machinelearning/gradientboost/1.png"
 ---
 
-> 참고한/사용된 자료 
+> **참고한/사용된 자료**
 > Krish Naik의 'Complete Data Science,Machine Learning,DL,NLP Bootcamp' 강의 내용을 참고하여 작성한 글입니다.
 > - [Udemy](https://www.udemy.com/course/complete-machine-learning-nlp-bootcamp-mlops-deployment/?couponCode=MT260629G1)
 > - [강의자료(Github)](https://github.com/krishnaik06/Complete-Data-Science-With-Machine-Learning-And-NLP-2024)

@@ -12,7 +12,7 @@ tags:
 thumbnail: "/assets/img/machinelearning/decisiontree/1.png"
 ---
 
-> 참고한/사용된 자료 
+> **참고한/사용된 자료**
 > - [위키백과](https://youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16&si=CE4wwNj5mEPJgnf1)
 > - [https://process-mining.tistory.com/42](https://process-mining.tistory.com/42)
 > - [Data Science Diary](https://datasciencediary.tistory.com/entry/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D-Random-Forest-%EB%9E%9C%EB%8D%A4-%ED%8F%AC%EB%A0%88%EC%8A%A4%ED%8A%B8-%EB%AA%A8%EB%8D%B8-%EA%B0%9C%EB%85%90-%EC%9D%B4%ED%95%B4)
