@@ -4,6 +4,7 @@ date: "2026-05-24"
 tags:
     - Computer Vision
     - ResNet
+    - Paper
 ---
 
 # ResNet - Residual Network
