@@ -7,17 +7,6 @@ tags:
 
 파이토치의 기초 문법과 함수 사용법을 다룬 포스트이다. 계속해서 내용을 업데이트할 예정.
 
-# 목차
-
-- [1. Tensor](#1-tensor)
-  - [1.1. Tensor가 무엇인가?](#11-tensor가-무엇인가)
-  - [1.2. Tensor in PyTorch](#12-tensor-in-pytorch)
-    - [Tensor 생성](#--tensor-생성)
-    - [rank, 형태 확인](#--rank-형태-확인)
-    - [Tensor의 자료형 (dtype)](#--tensor의-자료형-dtype)
-    - [Tensor와 NumPy 변환](#--tensor와-numpy-변환)
-  - [1.3. Tensor 연산](#13-tensor-연산)
-
 # 1. Tensor
 
 ### 1.1. Tensor가 무엇인가?
@@ -120,7 +109,7 @@ print(t.bool())    # tensor([True, True, True])
 ```
 
 > 딥러닝 모델에서는 대부분 `float32`를 기본 자료형으로 사용한다.
-
+> torch.tensor() => 타입이 인풋에 따라감, torch.Tensor() => 무조건 float
 
 #### - Tensor와 NumPy 변환
 

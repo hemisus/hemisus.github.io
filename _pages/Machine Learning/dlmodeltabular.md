@@ -69,7 +69,7 @@ $$\text{MLPBlock}(x) = \text{Dropout}(\text{ReLU}(\text{Linear}(x)))$$
 
 ### 3.2 ResNet
 
-과거에 정형 데이터용 ResNet 시도(SNN)가 있었지만 경쟁력이 없었다. 이 논문에서는 CV·NLP에서의 성공을 근거로 다시 시도하여, **입력에서 출력까지 명확한 경로(clear main path)**를 갖도록 블록을 단순화했다. 이 구조가 최적화에 유리했다.
+ResNet이 **입력에서 출력까지 명확한 경로(clear main path)**를 갖도록 블록을 단순화했다. 이 구조가 최적화에 유리했다.
 
 $$\text{ResNet}(x) = \text{Prediction}(\text{ResNetBlock}(\dots(\text{ResNetBlock}(\text{Linear}(x)))))$$
 $$\text{ResNetBlock}(x) = x + \text{Dropout}(\text{Linear}(\text{Dropout}(\text{ReLU}(\text{Linear}(\text{BatchNorm}(x))))))$$
@@ -77,7 +77,7 @@ $$\text{Prediction}(x) = \text{Linear}(\text{ReLU}(\text{BatchNorm}(x)))$$
 
 ### 3.3 FT-Transformer
 
-**Feature Tokenizer + Transformer**다. 모든 feature(수치형·범주형)를 임베딩으로 바꾼 뒤, 그 임베딩들에 Transformer 레이어 스택을 적용한다. 즉 하나의 객체에 대해 **Transformer가 feature 수준에서 동작**한다.
+**Feature Tokenizer + Transformer**. 모든 feature(수치형·범주형)를 임베딩으로 바꾼 뒤, 그 임베딩들에 Transformer 레이어를 쌓는다.
 
 $$\text{FT-Transformer}(x) = \text{Prediction}(\text{Block}(\dots(\text{Block}(\text{FeatureTokenizer}(x)))))$$
 
@@ -173,8 +173,8 @@ tabular 데이터 전용으로 설계된 기존 모델들도 함께 비교했다
 #### Preprocessing
 - 기본적으로 scikit-learn의 **quantile transformation** 사용.
 - Helena, ALOI에는 standardization 적용(ALOI는 이미지 데이터라 CV 관례를 따름).
-- Epsilon은 전처리가 오히려 해로워서 raw feature 사용.
-- 회귀 타깃은 모든 알고리즘에서 standardization.
+- Epsilon은 전처리가 오히려 성능을 저하시켜 raw feature 사용.
+- 모든 알고리즘에서 회귀 문제의 타깃은 standardization적용.
 
 #### Tuning
 - 대부분 모델은 **Optuna**로 베이지안 최적화(TPE) 수행. 나머지는 각각의 원래 논문이 권장한 설정 조합을 순회.
