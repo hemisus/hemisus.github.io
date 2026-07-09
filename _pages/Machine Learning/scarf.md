@@ -1,6 +1,6 @@
 ---
 title: "[ML] SCARF: Self-Supervised Contrastive Learning using Random Feature Corruption"
-date: "2026-07-08"
+date: "2026-07-09"
 tags:
     - Machine Learning
     - Tabular Data
@@ -17,7 +17,7 @@ thumbnail: "/assets/img/machinelearning/SCARF/1.png"
 
 비전(SimCLR)이나 NLP(BERT, GPT-3)에서는 self-supervised pretraining이 크게 성공했는데, 그 핵심은 도메인에 맞는 "view 생성 방법"이었다(비전의 crop/color distortion, NLP의 token masking). 그런데 정작 현실에서 가장 흔한 데이터 형태인 **테이블 형태 데이터(tabular data)** 에서는 이런 기법이 거의 활용되지 못하고 있었다. 이미지의 "자르기(crop)", NLP의 "토큰 마스킹(token masking)" 같은 데이터 변형 기법들이 전부 **도메인 특화(domain-specific)** 라서, 열(column)마다 의미가 제각각인 표 데이터에는 그대로 쓸 수 없기 때문이다.
 
-SCARF는 이 문제를 아주 단순한 아이디어로 해결한다. **입력 특징(feature) 중 일부를 무작위로 골라, 그 값을 "그 열에 실제로 등장했던 다른 값"으로 바꿔치기**하는 것이 전부이다.
+SCARF는 이 문제를 아주 단순한 아이디어로 해결한다. **입력 특징(feature) 중 일부를 무작위로 골라, 그 값을 "그 열에 실제로 등장했던 다른 값"으로 바꿔치기**하는 것이다.
 
 # 1. 핵심 용어
 
@@ -124,8 +124,8 @@ SCARF는 네트워크를 3가지로 분해하며 각각 256 은닉차원을 가�
 $$
 \tilde{x}^{(i)}_j =
 \begin{cases}
-x^{(i)}_j & \text{if } j \notin I_i \quad (\text{오염 대상이 아니면 그대로}) \\[4pt]
-v, \quad v \sim \hat{X}_{c_j} & \text{if } j \in I_i \quad (\text{오염 대상이면 그 열의 다른 값으로 교체})
+x^{(i)}_j & \text{if } j \notin I_i \quad \\
+v, \quad v \sim \hat{X}_{c_j} & \text{if } j \in I_i \quad 
 \end{cases}
 $$
 
