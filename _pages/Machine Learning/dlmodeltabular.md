@@ -147,7 +147,7 @@ tabular 데이터 전용으로 설계된 기존 모델들도 함께 비교했다
 
 ---
 
-## 4. Experiments
+# 4. Experiments
 
 이 논문은 **아키텍처가 부여하는 inductive bias 자체**를 평가하는 데 초점을 둔다. 따라서 pretraining, 추가 loss, data augmentation, distillation, learning rate warmup/decay 같은 기법은 사용되지 않았다.
 
