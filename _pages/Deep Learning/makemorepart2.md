@@ -1,5 +1,5 @@
 ---
-title: "Andrej Karpathy - Building makemore Part 2: MLP"
+title: "Andrej Karpathy - Makemore Part 2: MLP"
 date: "2026-07-18"
 tags:
     - Deep Learning
