@@ -77,6 +77,61 @@
   width:100%;
 }
 
+.profile-links {
+  display:none;
+  grid-template-columns:1fr 1fr;
+  gap:0.5rem;
+  padding:0.75rem 1rem 0;
+
+  &.profile-open { display:grid; }
+}
+
+.profile-link {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.5rem;
+  padding:0.5rem 0.75rem;
+  border-radius:8px;
+  background:rgba($color-darkbrown, .06);
+  transition:background .2s;
+
+  svg {
+    width:13px;
+    margin:0;
+    fill:$color-darkorange;
+    opacity:.85;
+    transition:transform .2s, opacity .2s;
+  }
+
+  span {
+    color:$color-darkbrown;
+    font-size:0.875rem;
+    letter-spacing:.5px;
+    transition:color .2s;
+  }
+
+  &:hover {
+    background:rgba($color-darkorange, .12);
+
+    svg {
+      opacity:1;
+      transform:scale(1.1);
+    }
+    span { color:$color-darkorange; }
+  }
+
+  &.active {
+    background:rgba($color-darkorange, .14);
+
+    svg { opacity:1; }
+    span {
+      color:$color-darkorange;
+      font-weight:600;
+    }
+  }
+}
+
 #contact{
   display:none;
   position:relative;
@@ -276,6 +331,13 @@
   width:#{$sidebarwd};
   height:calc(100% - 14rem);
   display:contents;
+}
+
+.profile-links {
+  display:grid;
+  box-sizing:border-box;
+  width:#{$sidebarwd};
+  padding:1.25rem 1rem 0;
 }
 
 #contact{

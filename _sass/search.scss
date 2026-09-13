@@ -1,7 +1,7 @@
 .sidebar-search {
   display: none;
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba($color-darkbrown, .08);
 
   &.search-open { display: block; }
 }
@@ -10,20 +10,27 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  border: 1.5px solid #e0e0e0;
+  border: none;
   border-radius: 8px;
   padding: 0.5rem 0.75rem;
-  transition: border-color 0.2s;
-  background: #fff;
+  transition: background 0.2s, box-shadow 0.2s;
+  background: rgba($color-darkbrown, .1);
+
+  &:hover { background: rgba($color-darkbrown, .13); }
 
   &:focus-within {
-    border-color: $color-aqua;
+    background: rgba($color-darkorange, .1);
+    box-shadow: inset 0 0 0 1px rgba($color-darkorange, .45);
+
+    .search-icon { fill: $color-darkorange; }
   }
 
   .search-icon {
-    width: 14px;
-    fill: #bbb;
+    width: 13px;
+    margin: 0;
+    fill: rgba($color-darkbrown, .65);
     flex-shrink: 0;
+    transition: fill 0.2s;
   }
 
   input {
@@ -32,11 +39,12 @@
     outline: none;
     font-size: 0.875rem;
     background: transparent;
-    color: inherit;
+    color: $color-darkbrown;
     min-width: 0;
     padding: 0;
+    letter-spacing: .5px;
 
-    &::placeholder { color: #ccc; }
+    &::placeholder { color: rgba($color-darkbrown, .6); }
   }
 
   button {
@@ -46,16 +54,16 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #ebebeb !important;
+    background: rgba($color-darkbrown, .1) !important;
     flex-shrink: 0;
     transform: none;
 
     svg {
-      fill: #888 !important;
+      fill: rgba($color-darkbrown, .6) !important;
       width: 10px;
     }
 
-    &:hover { background: #ddd !important; }
+    &:hover { background: rgba($color-darkorange, .2) !important; }
   }
 }
 
@@ -63,15 +71,15 @@
   z-index: 200;
   margin: 0;
   padding: 0.25rem 0;
-  background: #fff;
+  background: #FBF9F6;
   border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba($color-darkbrown, .12);
   max-height: 50vh;
   overflow-y: auto;
   display: none;
 
   &::-webkit-scrollbar { width: 4px; background: transparent; }
-  &::-webkit-scrollbar-thumb { background: #e0e0e0; border-radius: 2px; }
+  &::-webkit-scrollbar-thumb { background: rgba($color-darkbrown, .15); border-radius: 2px; }
 }
 
 .result-item {
@@ -82,7 +90,7 @@
   background: transparent;
   transition: background 0.15s;
 
-  &:hover { background: #f5f7fa; }
+  &:hover { background: rgba($color-darkorange, .07); }
 
   a { display: block; }
 
@@ -93,10 +101,10 @@
       vertical-align: top;
     }
     th { font-size: 0.875rem; }
-    td { font-size: 0.8125rem; color: #999; }
+    td { font-size: 0.8125rem; color: rgba($color-darkbrown, .55); }
 
     svg {
-      background-color: darkslategrey;
+      background-color: rgba($color-darkbrown, .5);
       mask-repeat: no-repeat;
       display: inline-flex;
       width: 12px;
@@ -104,7 +112,7 @@
       transform: translateY(2px);
     }
     .ico-book {
-      background-color: dodgerblue !important;
+      background-color: $color-darkorange !important;
       -webkit-mask-image: url($baseurl + '/assets/img/icon/book-solid.svg');
       mask-image: url($baseurl + '/assets/img/icon/book-solid.svg');
     }
@@ -121,28 +129,31 @@
       mask-image: url($baseurl + '/assets/img/icon/calendar-days-regular.svg');
     }
     .ico-book, th .ico-folder { width: 14px; }
-    th .ico-folder { background-color: mediumseagreen !important; }
+    th .ico-folder { background-color: $color-darkorange !important; }
   }
 
   .highlight {
     font-weight: 700;
-    color: $color-aqua !important;
+    color: $color-darkorange !important;
   }
 
-  .description { font-size: 0.8125rem; color: #aaa; padding: 0.25rem 0; display: block; }
+  .description { font-size: 0.8125rem; color: rgba($color-darkbrown, .45); padding: 0.25rem 0; display: block; }
 }
 
 @include mq(desktop) {
   .sidebar-search {
     display: block;
     position: relative;
+    box-sizing: border-box;
+    width: #{$sidebarwd};
+    padding-top: 0.5rem;
+    border-bottom: none;
   }
 
   #search-result {
     position: absolute;
-    left: 0;
-    right: 0;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    border-radius: 0 0 8px 8px;
+    left: 1rem;
+    right: 1rem;
+    margin-top: 0.375rem;
   }
 }

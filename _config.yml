@@ -43,6 +43,13 @@ defaults:
     values:
       layout: "page"
       date: "1900-01-01"
+  # Pages linked from the sidebar profile menu (excluded from post lists and search)
+  -
+    scope:
+      path: "_pages/Profile"
+      type: "pages"
+    values:
+      profile_page: true
 
 # Markdown newline activator 
 kramdown:

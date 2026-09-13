@@ -25,29 +25,14 @@
     <meta name="giscus_categoryId" content="{{ site.giscus_categoryId }}">
 
     {% if page.thumbnail %}
+    {%- assign check_localasset = page.thumbnail | split: '/' -%}
     <style>
-        {
-            %- assign check_localasset=page.thumbnail | split: '/' -%
-        }
-
-            {
-            % if check_localasset[0]=='' %
-        }
-
         .thumbnail {
+            {% if check_localasset[0] == '' %}
             background-image: url("{{ page.thumbnail | prepend: site.baseurl }}");
-        }
-
-            {
-            % else %
-        }
-
-        .thumbnail {
+            {% else %}
             background-image: url("{{ page.thumbnail }}");
-        }
-
-            {
-            % endif %
+            {% endif %}
         }
     </style>
     {% else %}

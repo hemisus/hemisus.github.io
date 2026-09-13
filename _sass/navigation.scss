@@ -125,13 +125,22 @@
   &::-webkit-scrollbar-thumb { background-color:rosybrown; }
 }
 
-.nav-item { border:none; }
+.nav-item {
+  border:none;
+  padding:6px 10px;
+}
 
 .nav-list { position:relative; }
+.nav-list li {
+  font-size:1rem;
+
+  > .nav-list li { font-size:0.9375rem; }
+}
 .nav-list li > .nav-list { background:none; }
 .nav-list-link {
   display:flex;
   width:95%;
+  min-height:1.75rem;
   align-items:center;
 
   &:hover {
@@ -150,10 +159,10 @@
     position:absolute;
     display:block;
     left:0;
-    border-radius:1.5rem;
+    border-radius:1.125rem;
     background:rgba(gold, .375);
-    width:3rem;
-    height:3rem;
+    width:2.25rem;
+    height:2.25rem;
     transition:.3s;
   }
   &:hover:before {
@@ -161,12 +170,18 @@
     background:gold;
   }
 
-  svg { transform:none; }
+  svg {
+    width:16px;
+    transform:none;
+  }
 }
+.nav-sh svg { width:14px; }
 
 .nav-list-expander {
   background-color:transparent;
   right:-16px;
+
+  svg { width:16px; }
 }
 
 }

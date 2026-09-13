@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var siteNav = document.querySelector('#navigation');
     var siteContact = document.querySelector('#contact');
     var siteSearch = document.querySelector('.sidebar-search');
+    var profileLinks = document.querySelector('.profile-links');
     var menuButton = document.querySelector("#btn-nav");
 
     menuButton.addEventListener('click', function() {
@@ -28,10 +29,12 @@ document.addEventListener('DOMContentLoaded', function(){
             siteNav.classList.add('nav-open');
             siteContact.classList.add('contact-open');
             if (siteSearch) siteSearch.classList.add('search-open');
+            if (profileLinks) profileLinks.classList.add('profile-open');
         } else {
             siteNav.classList.remove('nav-open');
             siteContact.classList.remove('contact-open');
             if (siteSearch) siteSearch.classList.remove('search-open');
+            if (profileLinks) profileLinks.classList.remove('profile-open');
         }
     });
 

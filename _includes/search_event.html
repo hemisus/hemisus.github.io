@@ -1,5 +1,6 @@
 {%- assign page_list = site.pages 
     | where_exp: "item", "item.title != nil"
+    | where_exp: "item", "item.profile_page != true"
 -%}
 <script defer>
     var posts = [];

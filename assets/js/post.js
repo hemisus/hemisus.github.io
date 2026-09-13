@@ -111,11 +111,15 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     // Move to Comment
-    document.getElementById('comments-counter').addEventListener('click', function(){
-        document.getElementById("giscus").scrollIntoView({
-            behavior: 'smooth'
+    const commentsCounter = document.getElementById('comments-counter');
+
+    if (commentsCounter) {
+        commentsCounter.addEventListener('click', function(){
+            document.getElementById("giscus").scrollIntoView({
+                behavior: 'smooth'
+            });
         });
-    });
+    }
 
     // Code highlighter
     if (currentTheme === 'dark'){
@@ -163,7 +167,7 @@ window.addEventListener('load', function(){
     const giscus_category = document.querySelector('meta[name="giscus_category"]').content;
     const giscus_categoryId = document.querySelector('meta[name="giscus_categoryId"]').content;
 
-    if (giscus_repo !== undefined) {
+    if (giscus_repo !== undefined && document.getElementById('giscus')) {
         let currentTheme = localStorage.getItem('theme');
 
         if (currentTheme === 'dark'){
